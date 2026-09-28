@@ -1,0 +1,23 @@
+name: Test starter.sh
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Make test executable
+        run: chmod +x test.sh
+
+      - name: Run Tests
+        run: sudo bash test.sh
